@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenAI-Based Cybersecurity Awareness Game - Capstone Project</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+        h1, h2 {
+            color: #003366;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 3px solid #003366;
+            padding-bottom: 10px;
+        }
+        section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #0056b3;
+        }
+        canvas {
+            background: white;
+            border-radius: 8px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>GenAI-Based Cybersecurity Awareness Game</h1>
+
+    <section>
+        <h2>Project Details</h2>
+        <p><span class="highlight">PROJECT TITLE:</span> GenAI-Based Cybersecurity Awareness Game</p>
+        <p><span class="highlight">Roll Numbers & Student Names:</span></p>
+        <ul>
+            <li>20221CSE0685 - Katta Manasa</li>
+            <li>20221CDV00 - Shibi Kumar S</li>
+            <li>20221IST0073 - Aashna K Nishad</li>
+        </ul>
+        <p><span class="highlight">Under the Supervision of:</span> Dr. Robin Rohit Vincent, Professor & HOD</p>
+        <p><span class="highlight">School Project Coordinators:</span> Dr. Sampath A K , Dr. Geetha A</p>
+        <p><span class="highlight">Problem Statement Number:</span> 3</p>
+        <p><span class="highlight">Organization:</span> School of Computer Science and Engineering, Presidency University</p>
+        <p><span class="highlight">Category:</span> Software</p>
+    </section>
+
+    <section>
+        <h2>Problem Description</h2>
+        <p>Many people, especially in the workplace, lack sufficient cybersecurity knowledge. Traditional training methods, such as reading lengthy documents or watching dull videos, often fail to engage learners. This results in poor retention and increases the risk of cyber-attacks. We aim to create an engaging and interactive way to educate people about cybersecurity, making the learning process both enjoyable and effective.</p>
+    </section>
+
+    <section>
+        <h2>Objectives</h2>
+        <ul>
+            <li>Create a game with Unity to provide an interactive platform for learning cybersecurity.</li>
+            <li>Use Generative AI for dynamic Q&A creation, producing unique phishing or scam scenarios.</li>
+            <li>Implement a reward system with points, badges, and unlockable levels.</li>
+            <li>Offer real-time feedback to reinforce learning.</li>
+            <li>Track user progress for performance insights.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Background & Related Work</h2>
+        <p>Previous cybersecurity training methods were repetitive and uninspiring. Gamification has proven to increase learner engagement. With Generative AI, our system can generate new scenarios on demand, providing a more realistic and adaptable training experience.</p>
+    </section>
+
+    <section>
+        <h2>Technology Stack</h2>
+        <ul>
+            <li><span class="highlight">Game Development:</span> Unity (Personal Edition)</li>
+            <li><span class="highlight">Backend:</span> Python (Flask/FastAPI)</li>
+            <li><span class="highlight">Generative AI:</span> Llama 3 / Mistral</li>
+            <li><span class="highlight">Database:</span> PostgreSQL</li>
+            <li><span class="highlight">Languages:</span> Python 3.9+, C#</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Innovation</h2>
+        <p>Our project uniquely integrates Generative AI within a Unity game, ensuring that each playthrough offers fresh, relevant, and challenging content for users to engage with.</p>
+    </section>
+
+    <section>
+        <h2>📅 Gantt Chart Timeline</h2>
+        <canvas id="ganttChart" width="900" height="500"></canvas>
+    </section>
+
+    <section>
+        <h2>References</h2>
+        <p>H. S. Mavikumbure, V. Cobilean, C. S. Wickramasinghe, D. Drake, and M. Manic, "Generative AI in Cyber Security of Cyber Physical Systems: Benefits and Threats," 2024 IEEE Conference...</p>
+        <p>S. Jawhar, J. Miller, and Z. Bitar, "AI-Driven Customized Cyber Security Training and Awareness," 2024 IEEE Conference...</p>
+        <p>J. Wei-Kocsis, M. Sabounchi, G. J. Mendis, P. Fernando, B. Yang, and T. Zhang, "Cybersecurity Education in the Age of Artificial Intelligence," IEEE Access, 2023.</p>
+        <p>R. Trifonov, O. Nakov, S. Manolov, G. Tsochev, and G. Pavlova, "Improving the Quality of Cyber Security Education," 2021 IEEE Conference...</p>
+    </section>
+
+    <script>
+        const ctx = document.getElementById('ganttChart').getContext('2d');
+
+        const tasks = [
+            { task: "Review-1 (CA-1): Problem Statement, Proposal & Objectives", start: "2025-08-15", end: "2025-08-20" },
+            { task: "Literature Survey & Requirement Analysis", start: "2025-08-21", end: "2025-08-31" },
+            { task: "Review-2 (CA-2): Literature & Design Approval", start: "2025-09-01", end: "2025-09-10" },
+            { task: "Prototype Development – Backend & AI Integration", start: "2025-09-11", end: "2025-09-30" },
+            { task: "Review-3 (CA-3): Progress Presentation", start: "2025-09-20", end: "2025-09-30" },
+            { task: "Game Frontend Development (Unity) & Reward System", start: "2025-10-01", end: "2025-10-20" },
+            { task: "Review-4 (CA-4): Integration Demo", start: "2025-10-10", end: "2025-10-20" },
+            { task: "Final Testing, Progress Tracking & Report Preparation", start: "2025-10-21", end: "2025-10-31" },
+            { task: "Final VIVA (CA-5): Submission & Presentation", start: "2025-11-01", end: "2025-11-05" }
+        ];
+
+        const chartData = {
+            labels: tasks.map(t => t.task),
+            datasets: [{
+                label: 'Timeline',
+                data: tasks.map(t => ({
+                    x: [new Date(t.start), new Date(t.end)],
+                    y: t.task
+                })),
+                backgroundColor: '#0056b3'
+            }]
+        };
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: chartData,
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Project Gantt Chart Timeline'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const range = context.raw.x;
+                                return `From: ${range[0].toLocaleDateString()} To: ${range[1].toLocaleDateString()}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        type: 'time',
+                        time: { unit: 'day', tooltipFormat: 'dd MMM yyyy' }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
