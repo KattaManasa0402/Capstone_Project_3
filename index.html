@@ -9,9 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Chart.js for Gantt Chart -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -111,11 +108,73 @@
             </ul>
         </section>
 
-        <section class="mb-8">
-            <h2 class="text-2xl sm:text-3xl font-bold text-blue-800 mb-4">📅 Project Timeline (Gantt Chart)</h2>
-            <canvas id="ganttChart" class="w-full h-96 bg-white rounded-xl shadow-md p-4"></canvas>
+        <section class="mb-8 section-hover">
+            <h2 class="text-2xl sm:text-3xl font-bold text-blue-800 mb-4">📅 Timeline of the Project</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-gray-600 border-collapse">
+                    <thead>
+                        <tr class="bg-blue-100">
+                            <th class="p-4 text-left text-blue-900 font-semibold">Task/Milestone</th>
+                            <th class="p-4 text-left text-blue-900 font-semibold">Start Date</th>
+                            <th class="p-4 text-left text-blue-900 font-semibold">End Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b">
+                            <td class="p-4">Problem Statement, Proposal & Objectives (Review-1)</td>
+                            <td class="p-4">Aug 15, 2025</td>
+                            <td class="p-4">Aug 20, 2025</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-4">Literature Survey & Requirement Analysis</td>
+                            <td class="p-4">Aug 21, 2025</td>
+                            <td class="p-4">Sep 01, 2025</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-4">Unity Game Core Development</td>
+                            <td class="p-4">Sep 02, 2025</td>
+                            <td class="p-4">Sep 19, 2025</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-4">Backend & AI Integration</td>
+                            <td class="p-4">Sep 20, 2025</td>
+                            <td class="p-4">Oct 10, 2025</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-4">Reward System & UI/UX Refinement</td>
+                            <td class="p-4">Oct 11, 2025</td>
+                            <td class="p-4">Oct 25, 2025</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-4">Final Testing & Report Preparation</td>
+                            <td class="p-4">Oct 26, 2025</td>
+                            <td class="p-4">Nov 04, 2025</td>
+                        </tr>
+                        <tr class="bg-red-100">
+                            <td class="p-4 font-semibold">Review-1 (CA-1)</td>
+                            <td class="p-4" colspan="2">Aug 20, 2025</td>
+                        </tr>
+                        <tr class="bg-red-100">
+                            <td class="p-4 font-semibold">Review-2 (CA-2)</td>
+                            <td class="p-4" colspan="2">Sep 01, 2025</td>
+                        </tr>
+                        <tr class="bg-red-100">
+                            <td class="p-4 font-semibold">Review-3 (CA-3)</td>
+                            <td class="p-4" colspan="2">Sep 20, 2025</td>
+                        </tr>
+                        <tr class="bg-red-100">
+                            <td class="p-4 font-semibold">Review-4 (CA-4)</td>
+                            <td class="p-4" colspan="2">Oct 10, 2025</td>
+                        </tr>
+                        <tr class="bg-red-100">
+                            <td class="p-4 font-semibold">Final VIVA (CA-5)</td>
+                            <td class="p-4" colspan="2">Nov 05, 2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <div class="mt-4 text-gray-600 text-sm">
-                <p><span class="font-semibold text-blue-900">Note:</span> Blue bars represent core project tasks, while red triangles mark key milestones or review submissions (CA-1 to CA-5).</p>
+                <p><span class="font-semibold text-blue-900">Note:</span> Blue rows represent core project tasks, while red rows indicate key milestones or review submissions (CA-1 to CA-5).</p>
             </div>
         </section>
 
@@ -129,151 +188,5 @@
             </ul>
         </section>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const ctx = document.getElementById('ganttChart').getContext('2d');
-            
-            const startDate = new Date('2025-08-15');
-            
-            const tasks = [
-                { task: "Problem Statement, Proposal & Objectives (Review-1)", start: new Date('2025-08-15'), end: new Date('2025-08-20') },
-                { task: "Literature Survey & Requirement Analysis", start: new Date('2025-08-21'), end: new Date('2025-09-01') },
-                { task: "Unity Game Core Development", start: new Date('2025-09-02'), end: new Date('2025-09-19') },
-                { task: "Backend & AI Integration", start: new Date('2025-09-20'), end: new Date('2025-10-10') },
-                { task: "Reward System & UI/UX Refinement", start: new Date('2025-10-11'), end: new Date('2025-10-25') },
-                { task: "Final Testing & Report Preparation", start: new Date('2025-10-26'), end: new Date('2025-11-04') },
-            ];
-            
-            const milestones = [
-                { task: "Review-1 (CA-1)", date: new Date('2025-08-20') },
-                { task: "Review-2 (CA-2)", date: new Date('2025-09-01') },
-                { task: "Review-3 (CA-3)", date: new Date('2025-09-20') },
-                { task: "Review-4 (CA-4)", date: new Date('2025-10-10') },
-                { task: "Final VIVA (CA-5)", date: new Date('2025-11-05') },
-            ];
-
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    datasets: [
-                        {
-                            label: 'Project Tasks',
-                            data: tasks.map((task) => ({
-                                x: [task.start, task.end],
-                                y: task.task,
-                                label: task.task,
-                            })),
-                            backgroundColor: 'rgba(59, 130, 246, 0.7)',
-                            borderColor: 'rgba(29, 78, 216, 1)',
-                            borderWidth: 2,
-                            borderRadius: 8,
-                            borderSkipped: false,
-                        },
-                        {
-                            label: 'Milestones',
-                            data: milestones.map((m) => ({
-                                x: m.date,
-                                y: m.task,
-                                label: m.task,
-                            })),
-                            type: 'scatter',
-                            pointStyle: 'triangle',
-                            pointRadius: 12,
-                            pointHoverRadius: 16,
-                            backgroundColor: 'rgba(239, 68, 68, 0.9)',
-                            borderColor: 'rgba(185, 28, 28, 1)',
-                            borderWidth: 2,
-                        }
-                    ]
-                },
-                options: {
-                    indexAxis: 'y',
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        x: {
-                            type: 'time',
-                            time: {
-                                unit: 'day',
-                                tooltipFormat: 'MMM dd, yyyy',
-                                displayFormats: {
-                                    day: 'MMM dd'
-                                }
-                            },
-                            min: startDate,
-                            grid: {
-                                color: 'rgba(0, 0, 0, 0.1)',
-                            },
-                            ticks: {
-                                color: '#1f2937',
-                                font: { size: 12 },
-                            },
-                            title: {
-                                display: true,
-                                text: 'Timeline',
-                                color: '#1f2937',
-                                font: { size: 14, weight: 'bold' }
-                            }
-                        },
-                        y: {
-                            grid: {
-                                display: false,
-                            },
-                            ticks: {
-                                color: '#1f2937',
-                                font: { size: 14 },
-                                padding: 10,
-                            },
-                            title: {
-                                display: true,
-                                text: 'Tasks & Milestones',
-                                color: '#1f2937',
-                                font: { size: 14, weight: 'bold' }
-                            }
-                        }
-                    },
-                    plugins: {
-                        tooltip: {
-                            backgroundColor: 'rgba(17, 24, 39, 0.9)',
-                            titleFont: { size: 14 },
-                            bodyFont: { size: 12 },
-                            padding: 12,
-                            callbacks: {
-                                label: function(context) {
-                                    const raw = context.raw;
-                                    if (context.dataset.label === 'Project Tasks') {
-                                        return `${raw.label}: ${raw.x[0].toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${raw.x[1].toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`;
-                                    } else {
-                                        return `${raw.label}: ${raw.x.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`;
-                                    }
-                                }
-                            }
-                        },
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                usePointStyle: true,
-                                padding: 20,
-                                font: { size: 12 },
-                                color: '#1f2937',
-                            }
-                        },
-                        title: {
-                            display: true,
-                            text: 'Project Timeline (Gantt Chart)',
-                            font: { size: 20, weight: 'bold' },
-                            color: '#1f2937',
-                            padding: { top: 10, bottom: 20 }
-                        }
-                    },
-                    animation: {
-                        duration: 1000,
-                        easing: 'easeOutQuart'
-                    }
-                }
-            });
-        });
-    </script>
 </body>
 </html>
