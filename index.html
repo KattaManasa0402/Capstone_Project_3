@@ -8,113 +8,124 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Chart.js for Gantt Chart -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
         }
         .container {
-            max-width: 1024px;
+            max-width: 1152px;
             margin: 0 auto;
+        }
+        .section-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .section-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-<body class="bg-gray-100 p-4 sm:p-6 lg:p-8">
-
-    <div class="container bg-white rounded-xl shadow-lg p-6 sm:p-8">
-        <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-900 text-center pb-4 mb-6 border-b-4 border-blue-600">
+<body class="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 p-4 sm:p-6 lg:p-8">
+    <div class="container bg-white rounded-2xl shadow-xl p-6 sm:p-8 lg:p-10 fade-in">
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-blue-900 text-center pb-4 mb-8 border-b-4 border-blue-600 tracking-tight">
             GenAI-Based Cybersecurity Awareness Game
         </h1>
 
-        <section class="bg-blue-50 p-6 rounded-lg shadow-inner mb-6">
-            <h2 class="text-2xl sm:text-3xl font-bold text-blue-800 mb-4">Project Details</h2>
-            <div class="space-y-2 text-gray-700">
-                <p><span class="font-bold text-blue-900">PROJECT TITLE:</span> GenAI-Based Cybersecurity Awareness Game</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <section class="bg-blue-50 p-6 sm:p-8 rounded-xl shadow-inner mb-8 section-hover">
+            <h2 class="text-2xl sm:text-3xl font-bold text-blue-800 mb-6">Project Details</h2>
+            <div class="space-y-4 text-gray-700">
+                <p><span class="font-semibold text-blue-900">PROJECT TITLE:</span> GenAI-Based Cybersecurity Awareness Game</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <p><span class="font-bold text-blue-900">Roll Numbers & Student Names:</span></p>
-                        <ul class="list-disc list-inside ml-4 mt-1">
+                        <p class="font-semibold text-blue-900">Roll Numbers & Student Names:</p>
+                        <ul class="list-disc list-inside ml-4 mt-2 text-gray-600">
                             <li>20221CSE0685 - Katta Manasa</li>
                             <li>20221CDV00 - Shibi Kumar S</li>
                             <li>20221IST0073 - Aashna K Nishad</li>
                         </ul>
                     </div>
                     <div>
-                        <p><span class="font-bold text-blue-900">Supervision:</span></p>
-                        <ul class="list-disc list-inside ml-4 mt-1">
-                            <li><span class="font-bold">Supervisor:</span> Dr. Robin Rohit Vincent, Professor & HOD</li>
-                            <li><span class="font-bold">School Project Coordinators:</span> Dr. Sampath A K, Dr. Geetha A</li>
-                            <li><span class="font-bold">Problem Statement Number:</span> 3</li>
-                            <li><span class="font-bold">Category:</span> Software</li>
+                        <p class="font-semibold text-blue-900">Supervision:</p>
+                        <ul class="list-disc list-inside ml-4 mt-2 text-gray-600">
+                            <li><span class="font-semibold">Supervisor:</span> Dr. Robin Rohit Vincent, Professor & HOD</li>
+                            <li><span class="font-semibold">School Project Coordinators:</span> Dr. Sampath A K, Dr. Geetha A</li>
+                            <li><span class="font-semibold">Problem Statement Number:</span> 3</li>
+                            <li><span class="font-semibold">Category:</span> Software</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="mb-6">
+        <section class="mb-8 section-hover">
             <h2 class="text-2xl sm:text-3xl font-bold text-blue-800 mb-4">Problem Description</h2>
-            <p class="text-gray-700 text-lg">
-                Traditional training methods for cybersecurity, such as static presentations and generic quizzes, have proven ineffective in keeping employees engaged and prepared for the ever-evolving landscape of cyber threats. This results in poor knowledge retention and a high risk of human-error-induced security breaches. Our project addresses this critical gap by creating a highly engaging and educational game that uses Generative AI to deliver a dynamic and realistic training experience.
+            <p class="text-gray-600 text-lg leading-relaxed">
+                Traditional cybersecurity training methods, such as static presentations and generic quizzes, often fail to engage employees effectively, leading to poor knowledge retention and increased vulnerability to cyber threats. Our project addresses this issue by developing an engaging, Generative AI-powered game that delivers dynamic, realistic, and interactive training experiences.
             </p>
         </section>
 
-        <section class="mb-6">
+        <section class="mb-8 section-hover">
             <h2 class="text-2xl sm:text-3xl font-bold text-blue-800 mb-4">Objectives</h2>
-            <ul class="list-disc list-inside text-gray-700 space-y-3 text-lg">
-                <li><span class="font-bold text-blue-900">Gamified Platform with Unity:</span> We will develop a visually appealing and interactive game using the free Personal Edition of Unity. The game will be the core platform for our training, featuring an intuitive interface and compelling gameplay to maximize user engagement.</li>
-                <li><span class="font-bold text-blue-900">Dynamic Q&A with Generative AI:</span> The game will be powered by a free and open-source Generative AI model (like Llama 3 or Mistral). This AI will dynamically create unique and challenging scenarios, such as sophisticated phishing emails or social engineering scams, ensuring the training is never repetitive.</li>
-                <li><span class="font-bold text-blue-900">Rewarding and Motivating System:</span> Users will be rewarded with points, badges, and the ability to unlock new levels or content for correctly identifying and responding to threats. This reward system is designed to keep players motivated and encourage continuous learning.</li>
-                <li><span class="font-bold text-blue-900">Real-time Learning and Feedback:</span> After each interaction, the game will provide instant feedback, explaining the correct and incorrect choices. This educational approach helps users learn from their mistakes immediately in a safe environment.</li>
-                <li><span class="font-bold text-blue-900">Performance Tracking:</span> We will implement a system to track each user's progress and performance over time. This data will provide valuable insights into individual strengths and weaknesses, allowing for a truly personalized learning journey.</li>
+            <ul class="list-disc list-inside text-gray-600 space-y-4 text-lg">
+                <li><span class="font-semibold text-blue-900">Gamified Platform with Unity:</span> Develop a visually appealing, interactive game using Unity's free Personal Edition, featuring an intuitive interface and engaging gameplay to maximize user engagement.</li>
+                <li><span class="font-semibold text-blue-900">Dynamic Q&A with Generative AI:</span> Integrate an open-source Generative AI model (e.g., Llama 3 or Mistral) to create unique, challenging scenarios like phishing emails or social engineering scams for non-repetitive training.</li>
+                <li><span class="font-semibold text-blue-900">Rewarding System:</span> Implement a points, badges, and level-unlock system to motivate users and encourage continuous learning through rewarding correct responses.</li>
+                <li><span class="font-semibold text-blue-900">Real-time Feedback:</span> Provide instant feedback after each interaction, explaining correct and incorrect choices to facilitate learning in a safe environment.</li>
+                <li><span class="font-semibold text-blue-900">Performance Tracking:</span> Track user progress and performance over time to offer personalized insights into strengths and weaknesses for a tailored learning experience.</li>
             </ul>
         </section>
 
-        <section class="mb-6">
+        <section class="mb-8 section-hover">
             <h2 class="text-2xl sm:text-3xl font-bold text-blue-800 mb-4">Technology Stack</h2>
-            <p class="text-gray-700 text-lg mb-4">
-                Our project will be built using a stack of powerful, free, and open-source tools to ensure a robust and scalable solution.
+            <p class="text-gray-600 text-lg mb-4 leading-relaxed">
+                The project leverages a robust stack of free, open-source tools to ensure scalability and accessibility.
             </p>
-            <ul class="list-disc list-inside text-gray-700 space-y-3 text-lg">
-                <li><span class="font-bold text-blue-900">Game Engine:</span> <span class="font-bold">Unity</span> (Personal Edition) for cross-platform game development and C# for scripting the game logic.</li>
-                <li><span class="font-bold text-blue-900">Backend:</span> <span class="font-bold">Python</span> with the <span class="font-bold">Flask</span> or <span class="font-bold">FastAPI</span> framework to handle game server logic, API requests, and communication with the AI model.</li>
-                <li><span class="font-bold text-blue-900">Generative AI:</span> An open-source Large Language Model like <span class="font-bold">Llama 3</span> or <span class="font-bold">Mistral</span>, which can be deployed via a free API or on a local server.</li>
-                <li><span class="font-bold text-blue-900">Database:</span> <span class="font-bold">PostgreSQL</span>, a powerful and free relational database, for storing user profiles, progress, scores, and game data.</li>
+            <ul class="list-disc list-inside text-gray-600 space-y-4 text-lg">
+                <li><span class="font-semibold text-blue-900">Game Engine:</span> <span class="font-medium">Unity</span> (Personal Edition) with <span class="font-medium">C#</span> for cross-platform game development and logic scripting.</li>
+                <li><span class="font-semibold text-blue-900">Backend:</span> <span class="font-medium">Python</span> with <span class="font-medium">Flask</span> or <span class="font-medium">FastAPI</span> for server logic, API handling, and AI communication.</li>
+                <li><span class="font-semibold text-blue-900">Generative AI:</span> Open-source models like <span class="font-medium">Llama 3</span> or <span class="font-medium">Mistral</span>, deployable via free APIs or local servers.</li>
+                <li><span class="font-semibold text-blue-900">Database:</span> <span class="font-medium">PostgreSQL</span> for storing user profiles, progress, scores, and game data.</li>
             </ul>
         </section>
 
-        <section class="mb-6">
+        <section class="mb-8 section-hover">
             <h2 class="text-2xl sm:text-3xl font-bold text-blue-800 mb-4">Innovation</h2>
-            <p class="text-gray-700 text-lg">
-                Our primary innovation is the seamless integration of a dynamic Generative AI engine within a fun, interactive game environment. This moves beyond traditional gamification to create an intelligent and adaptive training system that provides:
+            <p class="text-gray-600 text-lg leading-relaxed">
+                Our project innovates by integrating a dynamic Generative AI engine into an interactive game environment, offering:
             </p>
-            <ul class="list-disc list-inside text-gray-700 space-y-3 mt-4 text-lg">
-                <li><span class="font-bold text-blue-900">Infinite Scenario Variability:</span> The AI's ability to generate countless unique scenarios prevents rote memorization, teaching users to recognize and respond to the underlying principles of cyber threats.</li>
-                <li><span class="font-bold text-blue-900">Personalized Threat Modeling:</span> The system can analyze user weaknesses and dynamically create challenges that specifically target those areas, ensuring a tailored and effective learning journey for every player.</li>
+            <ul class="list-disc list-inside text-gray-600 space-y-4 mt-4 text-lg">
+                <li><span class="font-semibold text-blue-900">Infinite Scenario Variability:</span> AI-generated unique scenarios prevent rote memorization, teaching users to recognize and respond to cyber threat principles.</li>
+                <li><span class="font-semibold text-blue-900">Personalized Threat Modeling:</span> The system analyzes user weaknesses and creates targeted challenges for a tailored, effective learning journey.</li>
             </ul>
         </section>
 
-        <section class="mb-6">
-            <h2 class="text-2xl sm:text-3xl font-bold text-blue-800 mb-4">📅 Timeline of the Project (Gantt Chart)</h2>
-            <canvas id="ganttChart" class="w-full h-96 p-4 bg-white rounded-lg shadow-md"></canvas>
+        <section class="mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-blue-800 mb-4">📅 Project Timeline (Gantt Chart)</h2>
+            <canvas id="ganttChart" class="w-full h-96 bg-white rounded-xl shadow-md p-4"></canvas>
             <div class="mt-4 text-gray-600 text-sm">
-                <p><span class="font-bold text-blue-900">Note:</span> The blue bars represent core project tasks, and the red markers indicate key milestones or review submissions (CA-1 to CA-5).</p>
+                <p><span class="font-semibold text-blue-900">Note:</span> Blue bars represent core project tasks, while red triangles mark key milestones or review submissions (CA-1 to CA-5).</p>
             </div>
         </section>
 
         <section>
             <h2 class="text-2xl sm:text-3xl font-bold text-blue-800 mb-4">References</h2>
-            <ul class="list-disc list-inside text-gray-700 space-y-2 text-lg">
-                <li>H. S. Mavikumbure, V. Cobilean, C. S. Wickramasinghe, D. Drake, and M. Manic, "Generative AI in Cyber Security of Cyber Physical Systems: Benefits and Threats," 2024 IEEE Conference...</li>
-                <li>S. Jawhar, J. Miller, and Z. Bitar, "AI-Driven Customized Cyber Security Training and Awareness," 2024 IEEE Conference...</li>
-                <li>J. Wei-Kocsis, M. Sabounchi, G. J. Mendis, P. Fernando, B. Yang, and T. Zhang, "Cybersecurity Education in the Age of Artificial Intelligence," IEEE Access, 2023.</li>
-                <li>R. Trifonov, O. Nakov, S. Manolov, G. Tsochev, and G. Pavlova, "Improving the Quality of Cyber Security Education," 2021 IEEE Conference...</li>
+            <ul class="list-disc list-inside text-gray-600 space-y-3 text-lg">
+                <li>H. S. Mavikumbure et al., "Generative AI in Cyber Security of Cyber Physical Systems: Benefits and Threats," 2024 IEEE Conference.</li>
+                <li>S. Jawhar et al., "AI-Driven Customized Cyber Security Training and Awareness," 2024 IEEE Conference.</li>
+                <li>J. Wei-Kocsis et al., "Cybersecurity Education in the Age of Artificial Intelligence," IEEE Access, 2023.</li>
+                <li>R. Trifonov et al., "Improving the Quality of Cyber Security Education," 2021 IEEE Conference.</li>
             </ul>
         </section>
     </div>
@@ -142,46 +153,37 @@
                 { task: "Final VIVA (CA-5)", date: new Date('2025-11-05') },
             ];
 
-            const taskData = tasks.map((task, index) => ({
-                x: [task.start, task.end],
-                y: task.task,
-                label: task.task,
-            }));
-
-            const milestoneData = milestones.map((milestone) => ({
-                x: milestone.date,
-                y: milestone.task,
-                label: milestone.task,
-            }));
-
             new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: tasks.map(t => t.task),
                     datasets: [
                         {
                             label: 'Project Tasks',
-                            data: taskData,
-                            backgroundColor: '#3b82f6',
-                            borderColor: '#1e40af',
-                            borderWidth: 1,
-                            borderRadius: 4,
+                            data: tasks.map((task) => ({
+                                x: [task.start, task.end],
+                                y: task.task,
+                                label: task.task,
+                            })),
+                            backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                            borderColor: 'rgba(29, 78, 216, 1)',
+                            borderWidth: 2,
+                            borderRadius: 8,
                             borderSkipped: false,
                         },
                         {
                             label: 'Milestones',
-                            data: milestones.map((m, index) => ({
+                            data: milestones.map((m) => ({
                                 x: m.date,
                                 y: m.task,
                                 label: m.task,
                             })),
                             type: 'scatter',
                             pointStyle: 'triangle',
-                            radius: 10,
-                            backgroundColor: '#ef4444',
-                            borderColor: '#b91c1c',
+                            pointRadius: 12,
+                            pointHoverRadius: 16,
+                            backgroundColor: 'rgba(239, 68, 68, 0.9)',
+                            borderColor: 'rgba(185, 28, 28, 1)',
                             borderWidth: 2,
-                            hoverRadius: 12,
                         }
                     ]
                 },
@@ -194,66 +196,80 @@
                             type: 'time',
                             time: {
                                 unit: 'day',
-                                tooltipFormat: 'dd MMM yyyy',
+                                tooltipFormat: 'MMM dd, yyyy',
                                 displayFormats: {
-                                    day: 'dd MMM'
+                                    day: 'MMM dd'
                                 }
                             },
                             min: startDate,
                             grid: {
-                                drawOnChartArea: true,
+                                color: 'rgba(0, 0, 0, 0.1)',
                             },
                             ticks: {
-                                color: '#4b5563',
+                                color: '#1f2937',
+                                font: { size: 12 },
+                            },
+                            title: {
+                                display: true,
+                                text: 'Timeline',
+                                color: '#1f2937',
+                                font: { size: 14, weight: 'bold' }
                             }
                         },
                         y: {
-                            beginAtZero: true,
                             grid: {
-                                drawOnChartArea: false,
+                                display: false,
                             },
                             ticks: {
-                                color: '#4b5563',
-                                font: {
-                                    size: 14,
-                                }
+                                color: '#1f2937',
+                                font: { size: 14 },
+                                padding: 10,
+                            },
+                            title: {
+                                display: true,
+                                text: 'Tasks & Milestones',
+                                color: '#1f2937',
+                                font: { size: 14, weight: 'bold' }
                             }
                         }
                     },
                     plugins: {
                         tooltip: {
+                            backgroundColor: 'rgba(17, 24, 39, 0.9)',
+                            titleFont: { size: 14 },
+                            bodyFont: { size: 12 },
+                            padding: 12,
                             callbacks: {
                                 label: function(context) {
                                     const raw = context.raw;
                                     if (context.dataset.label === 'Project Tasks') {
-                                        return `${raw.label}: ${raw.x[0].toLocaleDateString()} - ${raw.x[1].toLocaleDateString()}`;
+                                        return `${raw.label}: ${raw.x[0].toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${raw.x[1].toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`;
                                     } else {
-                                        return `${raw.label}: ${raw.x.toLocaleDateString()}`;
+                                        return `${raw.label}: ${raw.x.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`;
                                     }
                                 }
                             }
                         },
                         legend: {
-                            display: true,
                             position: 'bottom',
                             labels: {
                                 usePointStyle: true,
                                 padding: 20,
+                                font: { size: 12 },
+                                color: '#1f2937',
                             }
                         },
                         title: {
                             display: true,
                             text: 'Project Timeline (Gantt Chart)',
-                            font: {
-                                size: 18,
-                                weight: 'bold'
-                            },
+                            font: { size: 20, weight: 'bold' },
                             color: '#1f2937',
-                            padding: {
-                                top: 10,
-                                bottom: 20
-                            }
+                            padding: { top: 10, bottom: 20 }
                         }
+                    },
+                    animation: {
+                        duration: 1000,
+                        easing: 'easeOutQuart'
                     }
                 }
             });
